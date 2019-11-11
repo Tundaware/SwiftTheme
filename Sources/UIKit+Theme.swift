@@ -111,6 +111,17 @@ import UIKit
         set { setThemePicker(self, "setBarTintColor:", newValue) }
     }
 }
+@objc public extension UITabBarItem
+{
+    var theme_badgeColor: ThemeColorPicker? {
+        get { return getThemePicker(self, "setBadgeColor:") as? ThemeColorPicker }
+        set { setThemePicker(self, "setBadgeColor:", newValue) }
+    }
+    func theme_setBadgeTextAttributes(_ picker: ThemeStringAttributesPicker?, forState state: UIControl.State) {
+        let statePicker = makeStatePicker(self, "setBadgeTextAttributes:forState:", picker, state)
+        setThemePicker(self, "setBadgeTextAttributes:forState:", statePicker)
+    }
+}
 @objc public extension UITableView
 {
     var theme_separatorColor: ThemeColorPicker? {
